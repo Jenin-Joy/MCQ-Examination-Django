@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Registration</title>
+</head>
+<body>
+  <h1 align="center">Candidate Registration</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table border="1" align="center">
+          <tr>
+            <td>Name</td>
+            <td><input type="text" name="txt_name" id="txt_name" value="{{r.candidate_name}}"></td>
+        </tr>
+          <tr>
+            <td>Email</td>
+            <td><input type="text" name="txt_email" id="txt_email"></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input type="password" name="txt_pswd" id="txt_pswd"></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Submit"></td>
+            <td><input type="submit" value="Cancel"></td>
+          </tr>   
+        </table>
+    </form> 
+    <table border="1">
+      <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>   
+          <th>Action</th>
+      </tr>
+          {% for i in result %}
+          <tr>
+           <td>{{forloop.counter}}</td>
+           <td>{{i.candidate_name}}</td> 
+           <td>{{i.candidate_email}}</td>     
+      </tr>
+      {% endfor %}
+  </table>
+
+    
+</body>
+</html>

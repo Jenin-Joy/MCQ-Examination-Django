@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="2">
+        <tr>
+            <td colspan="2" align="center"><img src="{{ a.user_photo.url }}" alt="User Photo" width="100"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="file" name="user_photo" required></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="user_name" value="{{a.user_name}}" ></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" name="user_email" value="{{a.user_email}}" ></td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td><input type="text" name="user_contact" value="{{a.user_contact}}"></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" name="user_address" value="{{a.user_address}}" ></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="edit"></td>
+        </tr>
+    
+    </table>
+</form>
+
+</body>
+</html>
