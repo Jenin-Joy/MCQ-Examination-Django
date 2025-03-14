@@ -6,7 +6,7 @@ from Cordinator.models import *
 class tbl_examinationbody(models.Model):
     examination = models.ForeignKey(tbl_examination, on_delete=models.CASCADE)
     user = models.ForeignKey(tbl_user, on_delete=models.CASCADE)
-    total_marks = models.CharField(max_length=30)
+    total_marks = models.IntegerField(default=0)
     examinationbody_status = models.IntegerField(default=0)
 
 class tbl_examinationanswers(models.Model):

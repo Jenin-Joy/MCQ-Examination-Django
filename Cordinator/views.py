@@ -46,6 +46,10 @@ def startexam(request, id):
     exam.save()
     return redirect("Cordinator:examinationdetails")
 
+def viewresult(request, id):
+    user = tbl_user.objects.filter(tbl_examinationbody__examination=id)
+    return render(request, "Cordinator/ViewResult.html", {'user': user})
+
 def addquestions(request,id):
     if "uid" in request.session:
 
