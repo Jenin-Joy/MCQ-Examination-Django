@@ -136,7 +136,7 @@
         {% if result %}
         <div class="exam-title">
             <div><span>Exam:</span> <span class="exam-name">{{ result.0.examinationbody.examination.examination_name }}</span></div>
-            <div><span>Scored mark:</span> <span class="scored-mark">{{ mark }}</span></div>
+            <div><span>Scored mark:</span> <span class="scored-mark">{{ result.0.examinationbody.total_marks }}</span></div>
             <div><span>Total marks:</span> <span class="total-marks">{{ total }}</span></div>
             <div><span>Questions:</span> <span class="question-count">{{ question }}</span></div>
         </div>

@@ -53,7 +53,8 @@
            <td>{{i.start_time}}</td> 
            <td>{{i.examination_time}}</td> 
            <td><a href="{% url 'Cordinator:delexm' i.id %}">Delete</a><br>
-           <a href="{% url 'Cordinator:addquestions' i.id %}">Add Questions</a></td>
+           <a href="{% url 'Cordinator:addquestions' i.id %}">Add Questions</a>
+           <a href="{% url 'Cordinator:startexam' i.id %}">Start Exam</a></td>
     
            
       </tr>

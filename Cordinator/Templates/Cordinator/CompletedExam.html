@@ -29,7 +29,7 @@
                 {% if i.examination_status == 1 %}
                 On Going
                 {% else %}
-                Examination Completed | <a href="">View Result</a>
+                Examination Completed | <a href="{% url 'Cordinator:viewresult' i.id %}">View Result</a>
                 {% endif %}
              </td>
       

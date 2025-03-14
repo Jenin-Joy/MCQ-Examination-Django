@@ -40,6 +40,12 @@ def examinationdetails(request):
     else:
         return redirect("Guest:login")    
 
+def startexam(request, id):
+    exam = tbl_examination.objects.get(id=id)
+    exam.examination_status = 1
+    exam.save()
+    return redirect("Cordinator:examinationdetails")
+
 def addquestions(request,id):
     if "uid" in request.session:
 

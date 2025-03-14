@@ -113,9 +113,12 @@ def successer(request):
 
 def viewresult(request, id):
     result = tbl_examinationanswers.objects.filter(examinationbody__examination=id,examinationbody__user=request.session["uid"],examinationbody__examinationbody_status=1)
-    total = 0
-    question = tbl_questions.objects.filter(examination=id).count()
-    for i in result:
-        if i.myanswer and i.myanswer.id == i.correct_answer.id:
-            total += 1
-    return render(request,"User/viewResult.html",{"result": result,"mark":total,"question":question,"total":question})
+    if result[0].examinationbody.total_marks == 0:
+        total = 0
+        for i in result:
+            if i.myanswer and i.myanswer.id == i.correct_answer.id:
+                total += 1
+        exambody = tbl_examinationbody.objects.get(examination=id,user=request.session["uid"],examinationbody_status=1)
+        exambody.total_marks = total
+        exambody.save()
+    return render(request,"User/viewResult.html",{"result": result,"question":question,"total":question})
