@@ -112,6 +112,7 @@ def successer(request):
     return render(request,"User/Success.html")
 
 def viewresult(request, id):
+    question = tbl_questions.objects.filter(examination=id).count()
     result = tbl_examinationanswers.objects.filter(examinationbody__examination=id,examinationbody__user=request.session["uid"],examinationbody__examinationbody_status=1)
     if result[0].examinationbody.total_marks == 0:
         total = 0

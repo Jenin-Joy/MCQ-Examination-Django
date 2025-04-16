@@ -19,4 +19,5 @@ urlpatterns=[
 
     path('completedexam/',views.completedexam,name="completedexam"),
     path('viewresult/<int:id>',views.viewresult,name="viewresult"),
+    path('completexam/<int:id>',views.completexam,name="completexam"),
 ]

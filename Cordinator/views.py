@@ -142,4 +142,13 @@ def completedexam(request):
     exm=tbl_examination.objects.filter(cordinator=request.session['cid'],examination_status__gt=0)
     return render(request,"Cordinator/CompletedExam.html",{"exam":exm})
 
+def completexam(request,id):
+    exam = tbl_examination.objects.get(id=id)
+    exam.examination_status = 2
+    exam.save()
+    exambody = tbl_examinationbody.objects.filter(examination=id)
+    for i in exambody:
+        i.examinationbody_status = 1
+        i.save()
+    return redirect("Cordinator:completedexam")
 # Create your views here.
