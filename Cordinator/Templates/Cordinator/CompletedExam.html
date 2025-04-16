@@ -27,7 +27,7 @@
              <td>{{i.examination_time}}</td> 
              <td>
                 {% if i.examination_status == 1 %}
-                On Going | <a href="{% url 'Tutor:completexam' i.id %}">Complete Exam</a>
+                On Going | <a href="{% url 'Cordinators:completexam' i.id %}">Complete Exam</a>
                 {% else %}
                 Examination Completed | <a href="{% url 'Cordinator:viewresult' i.id %}">View Result</a>
                 {% endif %}
